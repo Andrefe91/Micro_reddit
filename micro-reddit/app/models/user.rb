@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :posts
+  has_many :comments
+  validates_associated :posts
+
   validates :username, :email, :password, presence: true
 
   validates :username, length: {in: 5..25}, uniqueness: true
